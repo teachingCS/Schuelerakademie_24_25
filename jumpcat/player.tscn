@@ -32,7 +32,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qw3dk"]
@@ -40,6 +40,7 @@ radius = 51.0
 height = 158.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 7
 script = ExtResource("1_4eruh")
 metadata/_edit_group_ = true
 
@@ -47,7 +48,6 @@ metadata/_edit_group_ = true
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_a4dkd")
 animation = &"walk"
-frame_progress = 0.275976
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

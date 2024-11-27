@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://clup5thbd0fc2"]
+
+[ext_resource type="Script" path="res://obstacle.gd" id="1_fmb34"]
+[ext_resource type="Texture2D" uid="uid://dqej5w015nm7r" path="res://Assets/Obstacles/couch/c1.png" id="1_ipwkn"]
+[ext_resource type="Texture2D" uid="uid://bqsqnnumigae7" path="res://Assets/Obstacles/couch/c2.png" id="2_lwpva"]
+[ext_resource type="Texture2D" uid="uid://bmfhk1fd0oobe" path="res://Assets/Obstacles/couch/c3.png" id="3_ptsvq"]
+[ext_resource type="Texture2D" uid="uid://4jhcnedtyfa" path="res://Assets/Obstacles/couch/c4.png" id="4_lkvdo"]
+[ext_resource type="Texture2D" uid="uid://b8puca3x3ary" path="res://Assets/Obstacles/family/1.png" id="5_pi3qt"]
+[ext_resource type="Texture2D" uid="uid://cke7acf6exlh8" path="res://Assets/Obstacles/family/2.png" id="6_28lo5"]
+[ext_resource type="Texture2D" uid="uid://cnfb7ovn57qgg" path="res://Assets/Obstacles/family/3.png" id="7_vsobl"]
+[ext_resource type="Texture2D" uid="uid://cfbxp4aavyka" path="res://Assets/Obstacles/family/4.png" id="8_f77fa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0pbm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ipwkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lwpva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ptsvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lkvdo")
+}],
+"loop": true,
+"name": &"couch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pi3qt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_28lo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vsobl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f77fa")
+}],
+"loop": true,
+"name": &"family",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bme7"]
+radius = 78.0
+height = 264.0
+
+[node name="Obstacle" type="Area2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_fmb34")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0pbm7")
+animation = &"couch"
+frame_progress = 0.0456347
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7bme7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
