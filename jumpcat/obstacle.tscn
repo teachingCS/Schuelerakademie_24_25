@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clup5thbd0fc2"]
+[gd_scene load_steps=16 format=3 uid="uid://clup5thbd0fc2"]
 
 [ext_resource type="Script" path="res://obstacle.gd" id="1_fmb34"]
 [ext_resource type="Texture2D" uid="uid://dqej5w015nm7r" path="res://Assets/Obstacles/couch/c1.png" id="1_ipwkn"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cke7acf6exlh8" path="res://Assets/Obstacles/family/2.png" id="6_28lo5"]
 [ext_resource type="Texture2D" uid="uid://cnfb7ovn57qgg" path="res://Assets/Obstacles/family/3.png" id="7_vsobl"]
 [ext_resource type="Texture2D" uid="uid://cfbxp4aavyka" path="res://Assets/Obstacles/family/4.png" id="8_f77fa"]
+[ext_resource type="Texture2D" uid="uid://dvg5an2gptarb" path="res://Assets/Obstacles/kittens/k1.png" id="10_edo5m"]
+[ext_resource type="Texture2D" uid="uid://deebqlnimrick" path="res://Assets/Obstacles/kittens/k2.png" id="11_7mel4"]
+[ext_resource type="Texture2D" uid="uid://b81rk5b4e2cx2" path="res://Assets/Obstacles/kittens/k3.png" id="12_xbvqi"]
+[ext_resource type="Texture2D" uid="uid://2sw6csl3fl0p" path="res://Assets/Obstacles/kittens/k4.png" id="13_yrvm4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0pbm7"]
 animations = [{
@@ -45,6 +49,23 @@ animations = [{
 "loop": true,
 "name": &"family",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_edo5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7mel4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xbvqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yrvm4")
+}],
+"loop": true,
+"name": &"kittens",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bme7"]
@@ -52,6 +73,7 @@ radius = 78.0
 height = 264.0
 
 [node name="Obstacle" type="Area2D"]
+position = Vector2(1350, 400)
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_fmb34")
@@ -60,11 +82,15 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0pbm7")
 animation = &"couch"
-frame_progress = 0.0456347
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 16)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7bme7")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.49997, 21)
+scale = Vector2(15.85, 8.6)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
