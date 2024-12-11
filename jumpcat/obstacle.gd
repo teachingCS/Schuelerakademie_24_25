@@ -11,7 +11,7 @@ func _physics_process(delta: float):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://menu.tscn")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

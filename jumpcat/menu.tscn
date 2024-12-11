@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhtravy7ie1o0"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_6ip83"]
+[ext_resource type="FontFile" uid="uid://cn7m7a7e624ct" path="res://Assets/Mix/Big_Bottom_Typeface_Normal.ttf" id="1_xrhwn"]
+[ext_resource type="Texture2D" uid="uid://v0hq17qo1fwu" path="res://Assets/Mix/Banner.png" id="2_btjdb"]
+[ext_resource type="Texture2D" uid="uid://hvx5gasv1lmt" path="res://Assets/Player/jump.png" id="3_8h2w6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ip83")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.780392, 0.67451, 0.560784, 1)
+
+[node name="HighscoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.5
+offset_top = -92.0
+offset_right = 112.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xrhwn")
+theme_override_font_sizes/font_size = 30
+text = "Highscore: "
+
+[node name="BannerTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.0
+offset_top = 31.0
+offset_right = 243.0
+offset_bottom = 278.0
+grow_horizontal = 2
+texture = ExtResource("2_btjdb")
+
+[node name="CatTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -238.0
+offset_right = 235.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8h2w6")
+expand_mode = 1
+flip_h = true
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -340.0
+offset_top = -197.0
+offset_right = 333.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_xrhwn")
+theme_override_font_sizes/font_size = 30
+text = "Press <space> to start the game!"
