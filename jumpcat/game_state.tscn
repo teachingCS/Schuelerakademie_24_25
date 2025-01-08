@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://brgor7fdcorow"]
+
+[ext_resource type="Script" path="res://game_state.gd" id="1_3grj4"]
+[ext_resource type="AudioStream" uid="uid://8devnj3ds0wx" path="res://Assets/Mix/music.ogg" id="1_54wle"]
+
+[node name="GameState" type="Node"]
+script = ExtResource("1_3grj4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_54wle")
+autoplay = true

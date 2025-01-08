@@ -2,21 +2,22 @@ extends Node2D
 
 # Die Obstacle-Szenen Datei wird am Anfang geladen.
 const OBSTACLE = preload("res://obstacle.tscn")
-var score : int
+# Die Variable score wird im Levelskript nicht mehr benötigt (GameState)
+# var score : int
 
 func _on_spawn_timer_timeout() -> void:
 	# Erzeugen einer Instanz/ eines Objekts der Obstacleszene
 	var current_obstacle = OBSTACLE.instantiate()
-	
-	# Eine Möglichkeit das Objekt an die richtige Position zu setzen
-	# current_obstacle.position = Vector2(1350, 400)
-	
+	# Nicht jedes Obstacle ist gleich schnell:
+	current_obstacle.speed = randi_range(8, 16)
 	# Dem Level-Node wird das Objekt current_obstacle hinzugefügt
 	add_child(current_obstacle)
+	# Abstand zum nächsten Spawnzeitpunkt soll variieren:
+	$SpawnTimer.wait_time = randf_range(1.8,3.0)
 
 
 func _on_score_timer_timeout() -> void:
 	# Score wird um eins erhöht
-	score = score + 1
+	GameState.current_score = GameState.current_score + 1
 	# Aktualisiere das ScoreLabel:
-	$ScoreLabel.text = "Score: " + str(score)
+	$ScoreLabel.text = "Score: " + str(GameState.current_score)

@@ -11,7 +11,9 @@ func _physics_process(delta: float):
 
 
 func _on_body_entered(body: Node2D) -> void:
+	# Hier ist das Spiel beendet:
 	get_tree().change_scene_to_file("res://menu.tscn")
+	GameState.gameover()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

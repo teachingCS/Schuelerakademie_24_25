@@ -13,7 +13,11 @@ config_version=5
 config/name="JumpCat"
 run/main_scene="res://menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Player/jump.png"
+
+[autoload]
+
+GameState="*res://game_state.tscn"
 
 [file_customization]
 
