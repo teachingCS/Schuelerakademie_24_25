@@ -1,4 +1,4 @@
 # Schuelerakademie_24_25
 
 ## Programmierhausaufgabe:
-Ergänzt alle fehlenden Animationen in der Szene Obstacle!
+Versucht das neue Spiel von vorne eigenständig nachzubauen. 
