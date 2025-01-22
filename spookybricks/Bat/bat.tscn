@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxwwlgopurhcy"]
+
+[ext_resource type="Script" path="res://Bat/bat.gd" id="1_1kcbo"]
+[ext_resource type="Texture2D" uid="uid://bwvhssehmjfid" path="res://SpookyBricks/Sprites/BatFriend.png" id="2_ul7rv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we0he"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5kox"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7mak"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtojq"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvslh"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihwcb"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc6ok"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q05r4"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4joeo"]
+atlas = ExtResource("2_ul7rv")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p376m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we0he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5kox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7mak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtojq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvslh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihwcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc6ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q05r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4joeo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xnuyk"]
+radius = 15.0
+height = 130.0
+
+[node name="Bat" type="CharacterBody2D"]
+script = ExtResource("1_1kcbo")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p376m")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xnuyk")

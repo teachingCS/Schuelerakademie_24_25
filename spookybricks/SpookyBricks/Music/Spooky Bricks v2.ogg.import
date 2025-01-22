@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c80uxxafbmbot"
+path="res://.godot/imported/Spooky Bricks v2.ogg-426e7f86b932a4ae847c9a676e2bd936.oggvorbisstr"
+
+[deps]
+
+source_file="res://SpookyBricks/Music/Spooky Bricks v2.ogg"
+dest_files=["res://.godot/imported/Spooky Bricks v2.ogg-426e7f86b932a4ae847c9a676e2bd936.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
