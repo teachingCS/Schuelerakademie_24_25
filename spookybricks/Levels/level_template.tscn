@@ -1,31 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg0fu65uwgipm"]
+[gd_scene load_steps=6 format=3 uid="uid://bg0fu65uwgipm"]
 
 [ext_resource type="PackedScene" uid="uid://cxwwlgopurhcy" path="res://Bat/bat.tscn" id="1_ois4l"]
+[ext_resource type="PackedScene" uid="uid://c4ray2cskf4bq" path="res://Ball/ball.tscn" id="2_car4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4rla"]
-size = Vector2(20, 818)
+size = Vector2(20, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4feuy"]
-size = Vector2(20, 836)
+size = Vector2(20, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0yyh"]
-size = Vector2(1152, 20)
+size = Vector2(1920, 20)
 
 [node name="Level_Template" type="Node2D"]
 
 [node name="Bat" parent="." instance=ExtResource("1_ois4l")]
-position = Vector2(580, 571)
+position = Vector2(1081, 998)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-1, 335)
+position = Vector2(-10, 540)
 shape = SubResource("RectangleShape2D_t4rla")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1151, 344)
+position = Vector2(1930, 540)
 shape = SubResource("RectangleShape2D_4feuy")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(576, 1)
+position = Vector2(960, -10)
 shape = SubResource("RectangleShape2D_e0yyh")
+
+[node name="Ball" parent="." instance=ExtResource("2_car4b")]
+position = Vector2(1077, 897)
