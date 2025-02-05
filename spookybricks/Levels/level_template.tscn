@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg0fu65uwgipm"]
+[gd_scene load_steps=9 format=4 uid="uid://bg0fu65uwgipm"]
 
 [ext_resource type="PackedScene" uid="uid://cxwwlgopurhcy" path="res://Bat/bat.tscn" id="1_ois4l"]
 [ext_resource type="PackedScene" uid="uid://c4ray2cskf4bq" path="res://Ball/ball.tscn" id="2_car4b"]
+[ext_resource type="Texture2D" uid="uid://cqlw6ppllxjm8" path="res://SpookyBricks/Sprites/Bricks.png" id="3_rrul3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4rla"]
 size = Vector2(20, 1080)
@@ -11,6 +12,33 @@ size = Vector2(20, 1080)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0yyh"]
 size = Vector2(1920, 20)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kte2f"]
+texture = ExtResource("3_rrul3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_nba3k"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_kte2f")
 
 [node name="Level_Template" type="Node2D"]
 
@@ -33,5 +61,11 @@ shape = SubResource("RectangleShape2D_4feuy")
 position = Vector2(960, -10)
 shape = SubResource("RectangleShape2D_e0yyh")
 
-[node name="Ball" parent="." instance=ExtResource("2_car4b")]
+[node name="Bricks" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAAUAAQAAAAEAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAGAAQAAQAAAAEAAAAHAAUAAQABAAAAAAAIAAUAAQABAAAAAAAJAAUAAQABAAAAAAAKAAUAAQABAAAAAAAKAAYAAQACAAAAAAALAAYAAQACAAAAAAALAAcAAQACAAAAAAAMAAcAAQACAAAAAAANAAcAAQACAAAAAAAUAAkAAQACAAAAAAAVAAkAAQACAAAAAAAWAAkAAQACAAAAAAAXAAkAAQACAAAAAAAYAAkAAQACAAAAAAAZAAkAAQACAAAAAAAaAAkAAQACAAAAAAAGAAMAAQAAAAEAAAAGAAYAAQAAAAEAAAAHAAYAAQAAAAEAAAAIAAYAAQAAAAEAAAANAAoAAQAAAAEAAAAMAAoAAQAAAAEAAAALAAoAAQAAAAEAAAAKAAoAAQAAAAEAAAAJAAoAAQAAAAEAAAAQAAYAAQACAAEAAAARAAYAAQACAAEAAAASAAYAAQACAAEAAAATAAYAAQACAAEAAAAQAAUAAQAAAAIAAAARAAUAAQAAAAIAAAASAAUAAQAAAAIAAAATAAUAAQAAAAIAAAAQAAQAAQABAAIAAAARAAQAAQABAAIAAAASAAQAAQABAAIAAAATAAQAAQABAAIAAAA=")
+tile_set = SubResource("TileSet_nba3k")
+
+[node name="BallSpawner" type="Node2D" parent="."]
+
+[node name="Ball" parent="BallSpawner" instance=ExtResource("2_car4b")]
 position = Vector2(1077, 897)
