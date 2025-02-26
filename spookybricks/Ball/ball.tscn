@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ray2cskf4bq"]
+[gd_scene load_steps=5 format=3 uid="uid://c4ray2cskf4bq"]
 
 [ext_resource type="Texture2D" uid="uid://cgtif5dam7phs" path="res://SpookyBricks/Sprites/ball.png" id="1_iedfr"]
 [ext_resource type="Script" path="res://Ball/ball.gd" id="1_n6xej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wowfy"]
 radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mc8fj"]
+radius = 26.0
 
 [node name="Ball" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,3 +21,10 @@ texture = ExtResource("1_iedfr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wowfy")
+
+[node name="MagnetArea" type="Area2D" parent="."]
+
+[node name="MagnetCollision" type="CollisionShape2D" parent="MagnetArea"]
+shape = SubResource("CircleShape2D_mc8fj")
+
+[connection signal="body_entered" from="MagnetArea" to="." method="_on_magnet_area_body_entered"]

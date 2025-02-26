@@ -67,5 +67,5 @@ tile_set = SubResource("TileSet_nba3k")
 
 [node name="BallSpawner" type="Node2D" parent="."]
 
-[node name="Ball" parent="BallSpawner" instance=ExtResource("2_car4b")]
-position = Vector2(1077, 897)
+[node name="Ball" parent="BallSpawner" groups=["Balls"] instance=ExtResource("2_car4b")]
+position = Vector2(1080, 956)
