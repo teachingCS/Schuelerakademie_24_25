@@ -14,13 +14,17 @@ func _physics_process(delta: float) -> void:
 		if first_shot:
 			first_shot = false
 			# tells the balls not to be magnets
-			get_tree().call_group("Balls", "hi")
 			get_tree().call_group("Balls", "magnetize", false)
 			get_tree().call_group("Balls", "release")
 			# set magnet particles to false
+			magnetize(false)
 	move_and_collide(motion*SPEED*delta)
 	motion.x = 0
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		motion.x += event.relative.x
+
+func magnetize(set_magnet: bool):
+	$Magnet.emitting = set_magnet
+	

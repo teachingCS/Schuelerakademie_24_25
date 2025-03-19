@@ -1,7 +1,32 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxwwlgopurhcy"]
+[gd_scene load_steps=19 format=3 uid="uid://cxwwlgopurhcy"]
 
 [ext_resource type="Script" path="res://Bat/bat.gd" id="1_1kcbo"]
+[ext_resource type="Texture2D" uid="uid://b40jvt31nrlmk" path="res://SpookyBricks/Particles/Sparks/sparks.png" id="2_kkign"]
 [ext_resource type="Texture2D" uid="uid://bwvhssehmjfid" path="res://SpookyBricks/Sprites/BatFriend.png" id="2_ul7rv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vsi1y"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_6rb5t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), -0.101014, -0.101014, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vjcwb"]
+curve = SubResource("Curve_6rb5t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8njhs"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 16, 1)
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_vjcwb")
+color = Color(0.6, 1, 0.960784, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we0he"]
 atlas = ExtResource("2_ul7rv")
@@ -83,11 +108,23 @@ collision_mask = 6
 script = ExtResource("1_1kcbo")
 metadata/_edit_group_ = true
 
+[node name="Magnet" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_vsi1y")
+position = Vector2(0, -20)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_8njhs")
+texture = ExtResource("2_kkign")
+lifetime = 0.5
+preprocess = 1.0
+randomness = 1.0
+local_coords = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p376m")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xnuyk")

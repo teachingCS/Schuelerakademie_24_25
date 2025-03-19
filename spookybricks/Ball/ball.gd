@@ -55,7 +55,7 @@ func _on_magnet_area_body_entered(body: Node2D) -> void:
 		grabbed = true
 
 func magnetize(set_magnet:bool):
-	print("called")
+	print("test")
 	magnetized = set_magnet
 	
 func release():
@@ -63,6 +63,3 @@ func release():
 		grabbed = false
 		velocity.y = -SPEED
 		velocity.x += grab_offset * 5
-
-func hi():
-	print("hiiiiiiiiiiii")
