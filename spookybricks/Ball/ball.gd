@@ -14,7 +14,7 @@ func _ready() -> void:
 	velocity.y = -SPEED
 	max_slides = 1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if grabbed and Bat:
 		velocity = Vector2.ZERO
 		position.x = Bat.position.x + grab_offset
@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 				deflect_from_bat(collider)
 			
 			if collider is TileMapLayer:
-				# Signal soll ausgesendet werden
-				# Spiele coolen Sound ab
+				emit_signal("brick_hit", collision)
+				# spiele coolen Sound ab
 				pass
 				
 				
@@ -55,7 +55,6 @@ func _on_magnet_area_body_entered(body: Node2D) -> void:
 		grabbed = true
 
 func magnetize(set_magnet:bool):
-	print("test")
 	magnetized = set_magnet
 	
 func release():
@@ -63,3 +62,7 @@ func release():
 		grabbed = false
 		velocity.y = -SPEED
 		velocity.x += grab_offset * 5
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
