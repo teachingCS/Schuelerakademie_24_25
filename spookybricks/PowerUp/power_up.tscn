@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddh3ymyq2of1m"]
+
+[ext_resource type="Script" path="res://PowerUp/power_up.gd" id="1_0p80s"]
+[ext_resource type="Texture2D" uid="uid://dedfmlyhjctmb" path="res://SpookyBricks/Sprites/PowerupsPrites.png" id="2_0lu7p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acf76"]
+radius = 32.0
+
+[node name="PowerUp" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_0p80s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0lu7p")
+region_enabled = true
+region_rect = Rect2(128, 0, 64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_acf76")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

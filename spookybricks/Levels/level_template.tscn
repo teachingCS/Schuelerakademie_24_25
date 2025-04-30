@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bg0fu65uwgipm"]
+[gd_scene load_steps=15 format=3 uid="uid://bg0fu65uwgipm"]
 
 [ext_resource type="Script" path="res://Levels/level_template.gd" id="1_5er1l"]
 [ext_resource type="PackedScene" uid="uid://cxwwlgopurhcy" path="res://Bat/bat.tscn" id="1_ois4l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqlw6ppllxjm8" path="res://SpookyBricks/Sprites/Bricks.png" id="3_rrul3"]
 [ext_resource type="Script" path="res://Levels/bricks.gd" id="4_gpbhy"]
 [ext_resource type="Script" path="res://Levels/powerup_controller.gd" id="7_fpovh"]
+[ext_resource type="PackedScene" uid="uid://ddh3ymyq2of1m" path="res://PowerUp/power_up.tscn" id="8_rruwp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4rla"]
 size = Vector2(20, 1080)
@@ -86,6 +87,7 @@ anchor_mode = 0
 
 [node name="Powerup_Controller" type="Node2D" parent="."]
 script = ExtResource("7_fpovh")
+powerups = Array[Resource]([ExtResource("8_rruwp")])
 
 [connection signal="spawn_powerup" from="Bricks" to="Powerup_Controller" method="_on_bricks_spawn_powerup"]
 [connection signal="child_entered_tree" from="BallSpawner" to="BallSpawner" method="_on_child_entered_tree"]
