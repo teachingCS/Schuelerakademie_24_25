@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1bhjrwkr7als"]
+
+[ext_resource type="PackedScene" uid="uid://ddh3ymyq2of1m" path="res://PowerUp/power_up.tscn" id="1_c277r"]
+[ext_resource type="Script" path="res://PowerUp/power_up_magnet.gd" id="2_o6jk7"]
+
+[node name="PowerUp_Magnet" instance=ExtResource("1_c277r")]
+script = ExtResource("2_o6jk7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
