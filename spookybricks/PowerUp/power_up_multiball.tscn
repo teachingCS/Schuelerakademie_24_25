@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b80o33d8jsapx"]
+
+[ext_resource type="PackedScene" uid="uid://ddh3ymyq2of1m" path="res://PowerUp/power_up.tscn" id="1_48o1r"]
+[ext_resource type="Script" path="res://PowerUp/power_up_multiball.gd" id="2_v4xdl"]
+
+[node name="PowerUp_Multiball" instance=ExtResource("1_48o1r")]
+script = ExtResource("2_v4xdl")
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(0, 0, 64, 64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

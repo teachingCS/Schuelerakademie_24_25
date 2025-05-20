@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bg0fu65uwgipm"]
+[gd_scene load_steps=18 format=4 uid="uid://bg0fu65uwgipm"]
 
 [ext_resource type="Script" path="res://Levels/level_template.gd" id="1_5er1l"]
 [ext_resource type="PackedScene" uid="uid://cxwwlgopurhcy" path="res://Bat/bat.tscn" id="1_ois4l"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b1bhjrwkr7als" path="res://PowerUp/power_up_magnet.tscn" id="8_jxph0"]
 [ext_resource type="PackedScene" uid="uid://ykmt8ti5pqea" path="res://PowerUp/power_up_big_bat.tscn" id="9_q5as6"]
 [ext_resource type="PackedScene" uid="uid://qvjrpwaygxdi" path="res://PowerUp/power_up_small_bat.tscn" id="10_bdnp1"]
+[ext_resource type="PackedScene" uid="uid://b80o33d8jsapx" path="res://PowerUp/power_up_multiball.tscn" id="11_eej3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4rla"]
 size = Vector2(20, 1080)
@@ -89,7 +90,7 @@ anchor_mode = 0
 
 [node name="Powerup_Controller" type="Node2D" parent="."]
 script = ExtResource("7_fpovh")
-powerups = Array[Resource]([ExtResource("8_jxph0"), ExtResource("9_q5as6"), ExtResource("10_bdnp1")])
+powerups = Array[Resource]([ExtResource("8_jxph0"), ExtResource("9_q5as6"), ExtResource("10_bdnp1"), ExtResource("11_eej3y")])
 
 [connection signal="fire_bolt" from="Bat" to="." method="_on_bat_fire_bolt"]
 [connection signal="spawn_powerup" from="Bricks" to="Powerup_Controller" method="_on_bricks_spawn_powerup"]
@@ -97,3 +98,4 @@ powerups = Array[Resource]([ExtResource("8_jxph0"), ExtResource("9_q5as6"), ExtR
 [connection signal="child_exiting_tree" from="BallSpawner" to="BallSpawner" method="_on_child_exiting_tree"]
 [connection signal="bat_size" from="Powerup_Controller" to="Bat" method="change_size"]
 [connection signal="magnetize" from="Powerup_Controller" to="Bat" method="magnetize"]
+[connection signal="spawn_multiball" from="Powerup_Controller" to="BallSpawner" method="_on_powerup_controller_spawn_multiball"]

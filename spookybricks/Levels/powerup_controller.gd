@@ -4,6 +4,7 @@ extends Node2D
 
 signal magnetize
 signal bat_size
+signal spawn_multiball
 
 func _on_bricks_spawn_powerup(brick_pos) -> void:
 	#print("powerup spawned at: " + str(brick_pos))
@@ -32,3 +33,7 @@ func big_bat():
 func small_bat():
 	clear_powerups()
 	emit_signal("bat_size", -1)
+	
+func multiball():
+	clear_powerups()
+	emit_signal("spawn_multiball")
